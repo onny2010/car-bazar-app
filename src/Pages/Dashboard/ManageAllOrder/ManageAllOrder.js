@@ -5,14 +5,14 @@ const ManageAllOrder = () => {
  
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/orders`)
+    fetch(`https://car-bazar-server-site.vercel.app/orders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
   const handleDeleteOrder = (id) => {
     const isDelete = window.confirm("Are you sure delete order?");
     if (isDelete) {
-      fetch(`${process.env.REACT_APP_MECHANIC}/orders/${id}`, {
+      fetch(`https://car-bazar-server-site.vercel.app/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -28,7 +28,7 @@ const ManageAllOrder = () => {
   const handleShipped = (id) => {
     const isApproved = window.confirm("Are you sure approve this?");
     if (isApproved) {
-      fetch(`${process.env.REACT_APP_MECHANIC}/orders/${id}`, {
+      fetch(`https://car-bazar-server-site.vercel.app/orders/${id}`, {
         method: "PUT",
       })
         .then((res) => res.json())

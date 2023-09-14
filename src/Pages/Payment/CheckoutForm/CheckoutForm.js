@@ -14,7 +14,7 @@ export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
 
   const addData = () => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/orders`, {
+    fetch(`https://car-bazar-server-site.vercel.app/orders`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -5,11 +5,18 @@ import './HomeService.css'
 
 const HomeService = () => {
   const [products, setProducts] = useState([]);
-
+console.log("hello", process.env.REACT_APP_MECHANIC);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/products`)
+    // fetch(`https://car-bazar-server-site.vercel.app/products`)
+    fetch(`https://car-bazar-server-site.vercel.app/products`)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        console.log(data);
+        setProducts(data)
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
   }, []);
 
   const showProducts = products.slice(0, 6);

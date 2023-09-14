@@ -7,7 +7,7 @@ const AllMechanic = () => {
     const [searchText, setSearchText] = useState('');
 
     useEffect(() => {
-      fetch(`${process.env.REACT_APP_MECHANIC}/mechanic`)
+      fetch(`https://car-bazar-server-site.vercel.app/mechanic`)
         .then((res) => res.json())
         .then((data) => {
           if(searchText?.length > 0){

@@ -10,7 +10,7 @@ const Booking = () => {
   const { id } = useParams();
   const history = useHistory()
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/products/${id}`)
+    fetch(`https://car-bazar-server-site.vercel.app/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

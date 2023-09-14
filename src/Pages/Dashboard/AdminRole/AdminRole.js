@@ -4,7 +4,7 @@ import { Container, Button } from "react-bootstrap";
 const AdminRole = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/users`)
+    fetch(`https://car-bazar-server-site.vercel.app/users`)
       .then((res) => res.json())
       .then((data) => setUsers(data));
   });
@@ -12,7 +12,7 @@ const AdminRole = () => {
   const handleMakeAdmin = (id, role) => {
     const isRoleChange = window.confirm("Are you sure?");
     if (isRoleChange) {
-      fetch(`${process.env.REACT_APP_MECHANIC}/users/${id}`, {
+      fetch(`https://car-bazar-server-site.vercel.app/users/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

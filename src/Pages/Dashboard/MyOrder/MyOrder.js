@@ -6,14 +6,14 @@ const MyOrder = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/orders/${user.email}`)
+    fetch(`https://car-bazar-server-site.vercel.app/orders/${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user.email]);
   const handleDeleteOrder = (id) => {
     const isDelete = window.confirm("Are you sure delete order?");
     if (isDelete) {
-      fetch(`${process.env.REACT_APP_MECHANIC}/orders/${id}`, {
+      fetch(`https://car-bazar-server-site.vercel.app/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

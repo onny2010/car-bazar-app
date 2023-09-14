@@ -9,7 +9,9 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
+
+
+import initializeAuthentication from "../Pages/Login/Firebase/firebase.config";
 
 initializeAuthentication();
 const useFirebase = () => {
@@ -91,7 +93,7 @@ const useFirebase = () => {
       if (user) {
         setUser(user);
         // setAdminLoading(true);
-        fetch(`${process.env.REACT_APP_MECHANIC}/users/${user.email}`)
+        fetch(`https://car-bazar-server-site.vercel.app/users/${user.email}`)
           .then((res) => res.json())
           .then((data) => {
             if (data?.role === "Admin") {
@@ -108,10 +110,10 @@ const useFirebase = () => {
       setIsLoading(false);
     });
     return () => unsubscribed;
-  });
+  }, []);
   const saveUser = (email, displayName) => {
     const user = { email, displayName, role: "User" };
-    fetch(`${process.env.REACT_APP_MECHANIC}/users`, {
+    fetch(`https://car-bazar-server-site.vercel.app/users`, {
       method: `POST`,
       headers: {
         "content-type": "application/json",

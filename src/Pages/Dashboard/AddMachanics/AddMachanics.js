@@ -6,7 +6,7 @@ const AddMachanics = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-      fetch(`${process.env.REACT_APP_MECHANIC}/mechanic`, {
+      fetch(`https://car-bazar-server-site.vercel.app/mechanic`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

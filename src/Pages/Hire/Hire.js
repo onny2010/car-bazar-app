@@ -9,7 +9,7 @@ const Hire = () => {
   const { id } = useParams();
   const history = useHistory()
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/mechanic/${id}`)
+    fetch(`https://car-bazar-server-site.vercel.app/mechanic/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -19,7 +19,7 @@ const Hire = () => {
 
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/orders/${user.email}`)
+    fetch(`https://car-bazar-server-site.vercel.app/orders/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setRecord(data.find(d => d.email===user?.email));

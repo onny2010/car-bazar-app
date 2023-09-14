@@ -8,7 +8,7 @@ const Explore = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/products`)
+    fetch(`https://car-bazar-server-site.vercel.app/products`)
       .then((res) => res.json())
       .then((data) => {
         if(searchText?.length > 0){

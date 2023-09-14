@@ -8,7 +8,7 @@ const InsertItem = () => {
     console.log(data);
     const isAddedProduct = window.confirm("Are you sure added product?");
     if (isAddedProduct) {
-      fetch(`${process.env.REACT_APP_MECHANIC}/products`, {
+      fetch(`https://car-bazar-server-site.vercel.app/products`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

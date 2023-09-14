@@ -6,7 +6,7 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_MECHANIC}/products`)
+    fetch(`https://car-bazar-server-site.vercel.app/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -14,7 +14,7 @@ const ManageProducts = () => {
   const handleRemoveProduct = (id) => {
     const isRemoveProduct = window.confirm("Are you sure delete this product?");
     if (isRemoveProduct) {
-      fetch(`${process.env.REACT_APP_MECHANIC}/products/${id}`, {
+      fetch(`https://car-bazar-server-site.vercel.app/products/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

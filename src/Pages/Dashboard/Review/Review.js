@@ -12,7 +12,7 @@ const Review = () => {
     }
     const isReview = window.confirm("Are you sure? Think again");
     if (isReview) {
-      fetch(`${process.env.REACT_APP_MECHANIC}/reviews`, {
+      fetch(`https://car-bazar-server-site.vercel.app/reviews`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
